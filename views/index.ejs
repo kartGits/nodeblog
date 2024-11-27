@@ -1,0 +1,28 @@
+<div class="author">
+    <!-- Author Section -->
+   
+    <h2 class="author__heading">Hi, I am Khushi Dayal, a Web Developer</h2>
+    <p class="author__body">"Welcome to my tech blog, your go-to source for all things programming and development!"</p>
+    <img src="/img/img.webp" alt="person looking out through window" class="hero-image" width="500" height="500">
+  </div>
+  
+  <!-- Articles Section -->
+  <section class="articles">
+    <h2 class="articles__heading">Latest Posts</h2>
+    <ul class="article-ul">
+      <% data.forEach(post => { %>
+        <li>
+          <a href="/post/<%= post._id %>">
+            <!-- Post Title -->
+            <span class="article-title"><%= post.title %></span>
+            <!-- Post Date -->
+            <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  
+    <% if (nextPage !== null) { %>
+      <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+    <% } %>
+  </section>
