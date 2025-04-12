@@ -12,7 +12,7 @@ const connectDB = require('./server/config/db');
 const { isActiveRoute } = require('./server/helpers/routeHelpers');
 
 const app = express();
-const PORT = 5501 || process.env.PORT;
+const PORT = process.env.PORT || 5501;
 
 //Connect to DB
 connectDB();
@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
